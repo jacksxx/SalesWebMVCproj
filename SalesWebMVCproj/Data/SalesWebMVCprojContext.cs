@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
-namespace SalesWebMVCproj.Models
+namespace SalesWebMVCproj.Data
 {
     public class SalesWebMVCprojContext : DbContext
     {
