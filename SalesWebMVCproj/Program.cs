@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using SalesWebMVCproj.Models;
-using SalesWebMVCproj.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 //Add Server
