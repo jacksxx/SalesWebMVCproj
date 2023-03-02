@@ -2,6 +2,8 @@
 using Microsoft.Extensions.DependencyInjection;
 using SalesWebMVCproj.Data;
 using SalesWebMVCproj.Models;
+using SalesWebMVCproj.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 //Add Server
@@ -16,6 +18,7 @@ builder.Services.AddDbContext<SalesWebMVCprojContext>(options =>
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<SeedingService>();
+builder.Services.AddScoped<SellerService>();
 
 
 var app = builder.Build();
