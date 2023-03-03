@@ -1,18 +1,18 @@
 ﻿@model IEnumerable<SalesWebMVCproj.Models.Department>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Departments";
 }
 
-<h1>Index</h1>
+<h1>@ViewData["Title"]</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-dark">Create New</a>
 </p>
 <table class="table">
     <thead>
-        <tr>
-            <th>
+        <tr class="bg-dark" >
+            <th class="text-light">
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th></th>
@@ -21,7 +21,7 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
+            <td class="text-dark">
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
