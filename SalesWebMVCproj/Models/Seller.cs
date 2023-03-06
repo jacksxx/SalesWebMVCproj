@@ -4,6 +4,7 @@ using System.Linq;
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json.Serialization;
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel;
 
 namespace SalesWebMVCproj.Models
 {
@@ -30,8 +31,9 @@ namespace SalesWebMVCproj.Models
         [DisplayFormat(DataFormatString ="R$ {0:F2}")]
         [Range(100.0,50000.0, ErrorMessage ="{0} must be between R$ {1} and R$ {2}")]
         public double BaseSalary { get; set; }
-
+        
         public Department? Department { get; set; }
+        [Display(Name ="Department")]        
         public int DepartmentId { get; set; }
         public ICollection<SalesRecord> Sales { get; set; } = new List<SalesRecord>();
 

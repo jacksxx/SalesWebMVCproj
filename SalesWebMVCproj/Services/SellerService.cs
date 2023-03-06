@@ -18,7 +18,7 @@ namespace SalesWebMVCproj.Services
 
         public async Task<List<Seller>> FindAllAsync()
         {
-            return await _context.Seller.ToListAsync();
+            return await _context.Seller.Include(x => x.Department).ToListAsync();
         }
 
         public async Task InsertAsync(Seller obj)

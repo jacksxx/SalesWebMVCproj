@@ -3,6 +3,7 @@ using SalesWebMVCproj.Models;
 using SalesWebMVCproj.Models.ViewModels;
 using SalesWebMVCproj.Services;
 using SalesWebMVCproj.Services.Exception;
+using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 
 namespace SalesWebMVCproj.Controllers
@@ -18,7 +19,7 @@ namespace SalesWebMVCproj.Controllers
             _departmentService = departmentService;
         }
         public async Task<IActionResult> Index()
-        {
+        {            
             var list = await _sellerService.FindAllAsync();
             return View(list);
         }
