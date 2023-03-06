@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Org.BouncyCastle.Asn1.Pkcs;
 using SalesWebMVCproj.Services;
 
 namespace SalesWebMVCproj.Controllers
@@ -33,9 +34,20 @@ namespace SalesWebMVCproj.Controllers
             return View(result);
         }
 
-        public IActionResult GroupSearch()
+        public async Task<IActionResult> GroupSearchAsync(DateTime? minDate, DateTime? maxDate)
         {
-            return View();
+            if (!minDate.HasValue)
+            {
+                minDate = new DateTime(DateTime.Now.Year, 1, 1);
+            }
+            if (!maxDate.HasValue)
+            {
+                maxDate = DateTime.Now;
+            }
+            ViewData["minDate"] = minDate.Value.ToString("yyyy-MM-dd");
+            ViewData["maxDate"] = maxDate.Value.ToString("yyyy-MM-dd");
+            var result = await _salesRecordService.FindByDateGroupAsync(minDate, maxDate);
+            return View(result);
         }
     }
 }
