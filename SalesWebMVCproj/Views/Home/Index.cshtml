@@ -1,10 +1,129 @@
-﻿@{
+﻿@model IEnumerable<SalesWebMVCproj.Models.SalesRecord>
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
 
-    <h1 class="display-4">BEM VINDO MVC PROG</h1>
-    <p></p>
+    <h1 class="display-4">@ViewData["Title"]</h1>   
 
 </div>
+<div><p></p></div>
+
+
+
+<div class="container">
+   <div class="row justify-content-lg-center">
+     <div class="col-xl-8">
+         <div class="text-dark text-center display-6">Last Five Sales</div>
+            <table class="table table-bordered table-hover table-dark table-responsive">
+                 <thead>
+                      <tr class="bg-dark">
+                           <th class="text-light ">
+                            @Html.DisplayNameFor(model => model.Id)
+                           </th>
+                           <th class="text-light">
+                            @Html.DisplayNameFor(model => model.Date)
+                           </th>
+                           <th class="text-light">
+                            @Html.DisplayNameFor(model => model.Seller)
+                           </th>
+                           <th class="text-light">
+                            @Html.DisplayNameFor(model => model.Seller.Department)
+                           </th>
+                           <th class="text-light">
+                            @Html.DisplayNameFor(model => model.Amount)
+                           </th>
+                           <th class="text-light">
+                             @Html.DisplayNameFor(model => model.Status)
+                           </th>
+                     </tr>
+                 </thead>
+                 <tbody>
+                    @foreach (var item in Model)
+                    {
+                      <tr>
+                           <td class="text-light ">
+                                @Html.DisplayFor(modelItem => item.Id)
+                           </td>
+                           <td class="text-light">
+                                @Html.DisplayFor(modelItem => item.Date)
+                           </td>
+                           <td class="text-light">
+                                @Html.DisplayFor(modelItem => item.Seller.Name)
+                           </td>
+                           <td class="text-light">
+                                @Html.DisplayFor(modelItem => item.Seller.Department.Name)
+                           </td>
+                           <td class="text-light">
+                                @Html.DisplayFor(modelItem => item.Amount)
+                           </td>
+                           <td class="text-light">
+                                @Html.DisplayFor(modelItem => item.Status)
+                           </td>
+                      </tr>
+                    }
+                 </tbody>
+            </table>
+
+     </div>
+     <div class="col-xl-4">
+         <div class="text-dark text-center display-6">Last Five Sales</div>
+           <table class="table table-bordered table-hover table-dark table-responsive">
+                 <thead>
+                      <tr class="bg-dark">
+                           <th class="text-light ">
+                            @Html.DisplayNameFor(model => model.Id)
+                           </th>
+                           <th class="text-light">
+                            @Html.DisplayNameFor(model => model.Date)
+                           </th>
+                           <th class="text-light">
+                            @Html.DisplayNameFor(model => model.Seller)
+                           </th>
+                           <th class="text-light">
+                            @Html.DisplayNameFor(model => model.Seller.Department)
+                           </th> 
+                           <th class="text-light">
+                            @Html.DisplayNameFor(model => model.Amount)
+                           </th>
+                           <th class="text-light">
+                            @Html.DisplayNameFor(model => model.Status)
+                           </th>
+                     </tr>
+                 </thead>
+                 <tbody>
+                    @foreach (var item in Model)
+                    {
+                          <tr>
+                               <td class="text-light ">
+                                @Html.DisplayFor(modelItem => item.Id)
+                               </td>
+                               <td class="text-light">
+                                @Html.DisplayFor(modelItem => item.Date)
+                               </td>
+                               <td class="text-light">
+                                @Html.DisplayFor(modelItem => item.Seller.Name)
+                               </td>
+                               <td class="text-light">
+                                @Html.DisplayFor(modelItem => item.Seller.Department.Name)
+                               </td>       
+                               <td class="text-light">
+                                @Html.DisplayFor(modelItem => item.Amount)
+                               </td>
+                               <td class="text-light">
+                                @Html.DisplayFor(modelItem => item.Status)
+                               </td>
+                          </tr>
+                    }
+                 </tbody>
+            </table>
+
+     </div>
+   </div>
+</div>
+
+
+
+
+

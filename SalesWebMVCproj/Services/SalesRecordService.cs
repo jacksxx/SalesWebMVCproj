@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SalesWebMVCproj.Models;
+using System.Linq;
 
 namespace SalesWebMVCproj.Services
 {
@@ -51,6 +52,16 @@ namespace SalesWebMVCproj.Services
                 .OrderByDescending(x => x.Date)
                 .GroupBy(x => x.Seller.Department)
                 .ToListAsync();
+        }
+
+        public List<SalesRecord> FindTheLast(DateTime? date)
+        {           
+
+            return _context.SalesRecords
+                .Include(x => x.Seller)
+                .Include(x => x.Seller.Department)
+                .OrderBy(x => x.Date)
+                .ToList();
         }
     }
 }
