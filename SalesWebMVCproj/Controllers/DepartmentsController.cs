@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SalesWebMVCproj.Models;
 using SalesWebMVCproj.Models.ViewModels;
+using SalesWebMVCproj.Services;
 using SalesWebMVCproj.Services.Exception;
 
 namespace SalesWebMVCproj.Controllers
@@ -15,16 +16,18 @@ namespace SalesWebMVCproj.Controllers
     public class DepartmentsController : Controller
     {
         private readonly SalesWebMVCprojContext _context;
+        private readonly DepartmentService _departmentService;
 
-        public DepartmentsController(SalesWebMVCprojContext context)
+        public DepartmentsController(SalesWebMVCprojContext context, DepartmentService departmentService)
         {
             _context = context;
+            _departmentService = departmentService;
         }
 
         // GET: Departments
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Department.ToListAsync());
+            return View(await _context.Department.Include(x => x.Sellers).ToListAsync());
         }
 
         // GET: Departments/Details/5

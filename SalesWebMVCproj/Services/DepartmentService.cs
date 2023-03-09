@@ -1,6 +1,7 @@
 ﻿using SalesWebMVCproj.Models;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using SalesWebMVCproj.Services.Exception;
 
 namespace SalesWebMVCproj.Services
 {
@@ -16,6 +17,6 @@ namespace SalesWebMVCproj.Services
         public async Task<List<Department>> FindAllAsync()
         {
             return await _context.Department.OrderBy(x => x.Name).ToListAsync();
-        }
+        }        
     }
 }

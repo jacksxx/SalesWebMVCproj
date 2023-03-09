@@ -17,8 +17,9 @@ namespace SalesWebMVCproj.Controllers
 
         public IActionResult Index()
         {
-            var date = DateTime.Now;
-            return View(_salesRecordService.FindTheLast(date).TakeLast(5).OrderByDescending(x => x.Date)) ;
+            var date = DateTime.Now;      
+            
+            return View(_salesRecordService.FindTheLast(date).TakeLast(5).OrderByDescending(x => x.Date));
         }
 
         public IActionResult Privacy()

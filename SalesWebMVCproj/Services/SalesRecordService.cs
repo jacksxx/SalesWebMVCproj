@@ -60,7 +60,7 @@ namespace SalesWebMVCproj.Services
             return _context.SalesRecords
                 .Include(x => x.Seller)
                 .Include(x => x.Seller.Department)
-                .OrderBy(x => x.Date)
+                .OrderBy(x => x.Date)                
                 .ToList();
         }
     }
