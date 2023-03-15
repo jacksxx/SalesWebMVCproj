@@ -26,8 +26,9 @@ namespace SalesWebMVCproj.Controllers
 
         // GET: Departments
         public async Task<IActionResult> Index()
-        {
-            return View(await _context.Department.Include(x => x.Sellers).ToListAsync());
+        {            
+            var view = await _context.Department.Include(x => x.Sellers).ToListAsync();
+            return View(view);
         }
 
         // GET: Departments/Details/5

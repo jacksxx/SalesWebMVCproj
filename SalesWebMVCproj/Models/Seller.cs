@@ -12,7 +12,7 @@ namespace SalesWebMVCproj.Models
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage ="{0} Required")]
+        [Required(ErrorMessage = "{0} Required")]
         [StringLength(60, MinimumLength = 3, ErrorMessage = "{0} size should be between {2} and {1} characters")]
         public string Name { get; set; }
 
@@ -27,14 +27,14 @@ namespace SalesWebMVCproj.Models
         public DateTime BirthDate { get; set; }
 
         [Required(ErrorMessage = "{0} Required")]
-        [Display(Name ="Base Salary")]
-        [DisplayFormat(DataFormatString ="R$ {0:F2}")]
-        [Range(100.0,50000.0, ErrorMessage ="{0} must be between R$ {1} and R$ {2}")]
+        [Display(Name = "Base Salary")]
+        [DisplayFormat(DataFormatString = "R$ {0:F2}")]
+        [Range(100.0, 50000.0, ErrorMessage = "{0} must be between R$ {1} and R$ {2}")]
         public double BaseSalary { get; set; }
-        
+
         public Department? Department { get; set; }
 
-        [Display(Name ="Department")]        
+        [Display(Name = "Department")]
         public int DepartmentId { get; set; }
         public ICollection<SalesRecord> Sales { get; set; } = new List<SalesRecord>();
 
@@ -59,9 +59,9 @@ namespace SalesWebMVCproj.Models
         {
             Sales.Remove(sr);
         }
-        public double TotalSales(DateTime initial,DateTime final)
+        public double TotalSales(DateTime initial, DateTime final)
         {
             return Sales.Where(sr => sr.Date >= initial && sr.Date <= final).Sum(sr => sr.Amount);
-        }       
+        }            
     }
 }

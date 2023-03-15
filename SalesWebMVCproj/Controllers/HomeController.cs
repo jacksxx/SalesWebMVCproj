@@ -15,7 +15,7 @@ namespace SalesWebMVCproj.Controllers
             _salesRecordService = salesRecordService;
         }
 
-        public IActionResult Index()
+        public  IActionResult Index()
         {
             var date = DateTime.Now;      
             

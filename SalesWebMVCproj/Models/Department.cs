@@ -2,14 +2,17 @@
 using System;
 using System.Linq;
 using System.ComponentModel.DataAnnotations;
+using Mysqlx;
+using System.Collections;
 
 namespace SalesWebMVCproj.Models
 {
     public class Department
     {
         public int Id { get; set; }
-        public string Name { get; set; }        
-        public ICollection<Seller> Sellers { get; set; } = new List<Seller>();        
+        public string Name { get; set; }
+        [DisplayFormat(DataFormatString ="")]
+        public ICollection<Seller> Sellers { get; set; } = new List<Seller>();
         public Department()
         {
         }
@@ -27,6 +30,6 @@ namespace SalesWebMVCproj.Models
         public double TotalSales(DateTime initial, DateTime final)
         {
             return Sellers.Sum(seller => seller.TotalSales(initial, final));
-        }       
+        }         
     }
 }

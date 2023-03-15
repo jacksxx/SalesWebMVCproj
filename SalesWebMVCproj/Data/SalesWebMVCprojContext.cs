@@ -27,7 +27,7 @@ namespace SalesWebMVCproj.Models
             modelBuilder.Entity<Seller>()
             .HasMany(p => p.Sales)
             .WithOne(t => t.Seller)
-            .OnDelete(DeleteBehavior.Restrict);
+            .OnDelete(DeleteBehavior.Restrict);           
         }
     }
 }
